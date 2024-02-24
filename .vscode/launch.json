@@ -1,0 +1,68 @@
+{
+    // Geplukt van: https://github.com/robocorp/robotframework-lsp/blob/robotframework-lsp-1.11.0/robotframework-ls/docs/config.md
+
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "robot.python.executable": ".venv/bin/python",
+    "configurations": [
+        {
+            "type": "robotframework-lsp",
+            "name": "Robot with arg file",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "target": "${file}",
+            "terminal": "none",
+            "args": [
+                "-A${workspaceFolder}/my_arg_file"
+            ]
+        },
+        {
+            "type": "robotframework-lsp",
+            "name": "Robot with arg file and choice of browser",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "target": "${file}",
+            "terminal": "none",
+            "args": [
+                "-A${workspaceFolder}/my_arg_file",
+                "${input:BrowserType}"
+            ]
+        },
+        {
+            "type": "robotframework-lsp",
+            "name": "Robot codecheck",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "target": "${file}",
+            "terminal": "none",
+            "preLaunchTask": "Robot_code_check"
+        },
+        {
+            "type": "robotframework-lsp",
+            "name": "Robot with custom variables",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "target": "${file}",
+            "terminal": "none",
+            "env": {
+                "PATH": "${env:PATH}:/home/${env:USER}/.robotFrameworkTools",
+                "MYVARIABLE": "myvalue"
+            }
+        }
+    ],
+    // This is an input which asks the user which browser to use, robot files should use ${BROWSER} variable.
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "BrowserType",
+            "description": "Which browser du you want to use?",
+            "options": [
+                "-v BROWSER:headlesschrome",
+                "-v BROWSER:chrome"
+            ],
+            "default": "-v BROWSER:headlesschrome"
+        }
+    ]
+}
