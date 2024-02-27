@@ -1,5 +1,5 @@
 {
-    // Geplukt van: https://github.com/robocorp/robotframework-lsp/blob/robotframework-lsp-1.11.0/robotframework-ls/docs/config.md
+    // Gedeelte hiervan komt van deze forum post: https://forum.robotframework.org/t/adding-command-line-variables-with-robotcode/6477/6
 
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -7,48 +7,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "robotframework-lsp",
-            "name": "Robot with arg file",
+            "name": "Robotcode",
+            "type": "robotcode",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "target": "${file}",
-            "terminal": "none",
             "args": [
-                "-D results"
-            ]
-        },
-        {
-            "type": "robotframework-lsp",
-            "name": "Robot with arg file and choice of browser",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "target": "${file}",
-            "terminal": "none",
-            "args": [
-                "-A${workspaceFolder}/my_arg_file",
-                "${input:BrowserType}"
-            ]
-        },
-        {
-            "type": "robotframework-lsp",
-            "name": "Robot codecheck",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "target": "${file}",
-            "terminal": "none",
-            "preLaunchTask": "Robot_code_check"
-        },
-        {
-            "type": "robotframework-lsp",
-            "name": "Robot with custom variables",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "target": "${file}",
-            "terminal": "none",
-            "env": {
-                "PATH": "${env:PATH}:/home/${env:USER}/.robotFrameworkTools",
-                "MYVARIABLE": "myvalue"
-            }
+                "-D ${workspaceFolder}/results",
+                "-v WACHTWOORD:TesterWachtwoord"
+            ],
+            "purpose": "default"
         }
     ],
     // This is an input which asks the user which browser to use, robot files should use ${BROWSER} variable.
