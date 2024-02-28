@@ -7,7 +7,9 @@ Tevens installeer je ook Node.Js. Beide LTS en current versie zijn prima
 Om dit project te kunnen runnen draai je de volgende commando's in de terminal, in de root van dit project:
 
 ```bash
-python -m venv venv;
+python -m venv .venv;
 pip install -r requirements.txt;
-rfbrowser init
+npm install
+rfbrowser init --skip-browsers
+set 
 ```                                 

@@ -1,0 +1,20 @@
+{
+    "robotcode.robot.pythonPath": ["${workspaceFolder}\\.venv\\Scripts\\python.exe"],
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Robotcooode",
+                "type": "robotcode",
+                "request": "launch",
+                "cwd": "${workspaceFolder}",
+                "args": [
+                    "-D ${workspaceFolder}/results",
+                    "-v WACHTWOORD:TesterWachtwoord"
+                ],
+                "purpose": "default"
+            }
+        ],
+        "compounds": []
+    }
+}

@@ -3,6 +3,7 @@ Documentation     Een testset om te leren met Robot Framework te werken.
 ...               We leren een paar basis prinicipes van Robot Fraamework zoals variabelen,
 ...               kijken naar Robot's standard library
 ...               En maken we gebruik van Browser Library.
+Library           Browser    
 
 *** Variables ***
 ${site}    https://the-internet.herokuapp.com/
@@ -37,5 +38,14 @@ ${site}    https://the-internet.herokuapp.com/
         Log    Mijn ${key} is ${value}
     END
 
-     
-    
+003 Browser
+    Browser starten
+
+
+*** Keywords ***
+
+Browser starten
+    Browser.New Browser    browser=chromium    headless=false
+    Browser.New Context
+    Browser.New Page    ${site}
+    Browser.Click     \#menu
